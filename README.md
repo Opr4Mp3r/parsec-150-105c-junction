@@ -27,6 +27,8 @@ This is a local security-boundary violation — SYSTEM-side file creation/overwr
 
 Only 150-105c was tested. Builds that contain the same service/loader pair may also be affected.
 
+> Note: `pservice.exe` has file version `150.104.0.0`. This is a file version, not an IP address. Some automated form processors mask it as `x.x.x.x`; the correct value is `150.104.0.0`.
+
 ## Root cause
 
 1. The standard user moves `C:\Users\<user>\AppData\Roaming\Parsec` aside and creates a junction at that path pointing to a target directory the user cannot write to (for example `C:\p\vt\run1`).
@@ -76,7 +78,7 @@ Run only on an isolated test VM. The junction changes the user's real `%APPDATA%
 
 ## CVE status
 
-No CVE was assigned at publication time. A CVE request was submitted to VulDB (a CVE Numbering Authority) on 2026-11-17. If a CVE is assigned, this README will be updated with the identifier.
+No CVE was assigned at publication time. A CVE request was submitted to VulDB (a CVE Numbering Authority) on 2026-11-17; the VulDB submission is **#1099246** (status: Received / Analysis). If a CVE is assigned, this README will be updated with the identifier.
 
 ## Credit
 
